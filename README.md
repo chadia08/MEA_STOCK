@@ -1,66 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Instructions de déploiement - Système MEA STOCK
+Ces instructions détaillent les étapes nécessaires pour déployer le projet de système de gestion de stock utilisant Laravel, Largon et MySQL. Assurez-vous de suivre ces instructions pour configurer le projet avec succès sur le serveur de déploiement.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Prérequis
+Avant de commencer le déploiement du projet, assurez-vous de respecter les prérequis suivants:
 
-## About Laravel
+#### Laragon
+Téléchargez Laragon depuis le site officiel : 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+        https://laragon.org/download/
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sélectionnez la version correspondant à votre système d'exploitation (Windows).
+Suivez les instructions d'installation fournies sur le site pour installer Laragon sur votre machine.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Serveur Web Apache
+Laragon inclut le serveur web Apache. Vérifiez que le serveur Apache est en cours d'exécution une fois l'installation de Laragon terminée.
 
-## Learning Laravel
+#### PHP
+Laragon installe une version de PHP par défaut. Vérifiez que la version de PHP installée est compatible avec Laravel. (Vérifiez les exigences de Laravel pour connaître la version recommandée).
+Si nécessaire, vous pouvez changer la version de PHP utilisée par Laragon en cliquant avec le bouton droit de la souris sur l'icône Laragon dans la barre des tâches, en sélectionnant "PHP" et en choisissant la version appropriée.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### MySQL
+Laragon inclut également le système de gestion de base de données MySQL.
+Vérifiez que le service MySQL est en cours d'exécution en cliquant avec le bouton droit de la souris sur l'icône Laragon dans la barre des tâches, en sélectionnant "MySQL" et en vérifiant que le service est "Started".
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Une fois que vous avez installé Laragon et vérifié que les prérequis sont satisfaits, vous êtes prêt à procéder au déploiement du projet.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Étapes de déploiement
 
-## Laravel Sponsors
+#### 1.Téléchargement du code source
+Pour commencer, vous devez télécharger le code source du projet depuis le référentiel GitHub fourni.Suivez étapes ci-dessous:
+i. Ouvrez un navigateur web et accédez au référentiel GitHub du projet :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+        https://github.com/chadia08/ocp.git.
 
-### Premium Partners
+ii. Sur la page du référentiel GitHub, cliquez sur le bouton vert "Code" et sélectionnez l'option "Download ZIP". Cela téléchargera une archive ZIP contenant tout le code source du projet sur votre machine locale.
+GitHub Download ZIP
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+iii. Une fois le téléchargement terminé, extrayez le contenu de l'archive ZIP dans le répertoire de votre choix. Vous obtiendrez un répertoire contenant tous les fichiers du projet.
+Maintenant que vous avez téléchargé le code source du projet, vous pouvez passer à l'étape suivante pour configurer l'environnement de déploiement.
 
-## Contributing
+#### 2.Création manuelle de la base de données
+utilisez PhpMyAdmin, suivez les étapes suivantes :
+Ouvrez PhpMyAdmin dans votre navigateur en accédant à l'URL appropriée (ex : http://localhost/phpmyadmin).
+Connectez-vous à votre serveur MySQL à l'aide des identifiants appropriés.
+Cliquez sur l'onglet "Bases de données" et entrez le nom de la base de données dans le champ de création.
+Cliquez sur le bouton "Créer" pour créer la base de données.
+NB: Utilisez le nom de base de données spécifié dans le fichier .env (dans l'exemple donné, le nom de base de données est **ocp**).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### 3.Installation des dépendances
+Assurez-vous que Composer est installé sur le serveur.
+À l'aide d'un terminal, accédez au répertoire du projet et exécutez la commande **composer install** pour installer les dépendances.
 
-## Code of Conduct
+#### 4.Exécution des migrations
+Dans le terminal, exécutez la commande **php artisan migrate** pour exécuter les migrations et créer les tables nécessaires dans la base de données.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### 5.Configuration du stockage des fichiers
+xécutez la commande **php artisan storage:link** pour lier le répertoire de stockage.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### 6.Accès à l'application
+Ouvrez un navigateur web et accédez à l'URL de votre application pour vérifier si elle est accessible.
+**page d'acceuil: http://127.0.0.1:8000/home**.
