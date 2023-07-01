@@ -134,6 +134,14 @@
 	  		text: urlParams.get('msg')
 	});
 }
+        if (urlParams.has('delete')) {
+                    Swal.fire({
+                icon: 'success',
+                title: 'Utilisateur a été supprimé avec succés',
+                text: urlParams.get('msg')
+        });
+    }
+        
     if (urlParams.has('error')) {
 				 Swal.fire({
 	  		icon: 'error',
