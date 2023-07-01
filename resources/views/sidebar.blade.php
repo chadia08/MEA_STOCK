@@ -95,8 +95,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 
-                {{-- <a class="collapse-item" href="/cessions">Cessions Local</a>
-                <a class="collapse-item" href="/cessions">Cession Hors Zone</a> --}}
+                <a class="collapse-item" href="/cessionsSortie">Cessions de Sortie</a>
+                <a class="collapse-item" href="/cessionsEntree">Cession d'Entrée</a>
             </div>
         </div>
     </li>

@@ -130,7 +130,7 @@
 	    if (urlParams.has('msg')) {
 				 Swal.fire({
 	  		icon: 'success',
-	  		title: 'User has been deleted successfully',
+	  		title: 'Utilisateur a été crée avec succés',
 	  		text: urlParams.get('msg')
 	});
 }

@@ -1,4 +1,4 @@
-<x-action-section>
+{{-- <x-action-section>
     <x-slot name="title">
         {{ __('Sessions du navigateur') }}
     </x-slot>
@@ -95,4 +95,4 @@
             </x-slot>
         </x-dialog-modal>
     </x-slot>
-</x-action-section>
+</x-action-section> --}}

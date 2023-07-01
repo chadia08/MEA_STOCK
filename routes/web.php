@@ -46,7 +46,7 @@ Route::get('/error',function(){
     return view('error');
 });
     Route::get('/consommation','App\Http\Controllers\OtController@selectCons');
-    Route::get('/cessions','App\Http\Controllers\OtController@selectcessions');
+    Route::get('/cessionsSortie','App\Http\Controllers\OtController@selectcessions');
     Route::post('/consommation/otLocal','App\Http\Controllers\OtController@otlocal');
     Route::post('/consommation/otFictif','App\Http\Controllers\OtController@otfictif');
     Route::post('/consommation/OtLocalFictif','App\Http\Controllers\OtController@otlocalfictif');
@@ -67,6 +67,7 @@ Route::get('/error',function(){
         ->join('article', 'ot.code_article', '=', 'article.code_article')
         ->join('famille','article.code_famille','=','famille.code_famille')
         ->where('type', '=', 'DA')
+        ->take(2)
         ->get();
     
     $users = DB::table('users')->get();

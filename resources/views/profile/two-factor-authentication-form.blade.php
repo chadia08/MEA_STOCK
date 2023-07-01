@@ -1,4 +1,4 @@
-<x-action-section>
+{{-- <x-action-section>
     <x-slot name="title">
         {{ __('Authentification à deux facteurs') }}
     </x-slot>
@@ -121,4 +121,4 @@
             @endif
         </div>
     </x-slot>
-</x-action-section>
+</x-action-section> --}}

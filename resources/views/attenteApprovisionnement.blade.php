@@ -71,14 +71,7 @@
                             <button type="submit" class="btn btn-primary mb-3"><i class="fa fa-search"></i></button>
                         </form>
                         <div style="overflow-x:scroll;">
-                            <div class="d-flex" style="position: fixed; right: 0; margin-bottom: 100px; z-index: 9999;">
-                                <select name="genre"  class="form-select m-2  btn btn-secondary" style="width:160px;" aria-label="Disabled select example">
-                                    <option selected disabled hidden>Genre</option>
-                                        <option value="electrique">éléctrique</option>
-                                        <option value="instrument">instrument</option>
-                                </select>
-                                <button type="submit" class="btn btn-primary m-2" style="width:160px;">Passer DPRF</button>
-                            </div>
+                            
                             <div>
                                 
                             <table class="table m-1 mb-5 mt-5" style="width:100%;">
@@ -142,32 +135,69 @@
                                     
                                     <!--fin modification de la quantité-->
 
+                                    <!--demande de cession d'entrée-->
+                                    <div class="modal fade" id="{{$pdr->id_ot.$pdr->code_article}}" tabindex="-1" aria-labelledby="exampleModalLabeln" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabeln">Demander Cession d'entrée</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="#" method="post">
+                                                    @csrf
+                                                    <input type="radio" name="horszone" id="horszone"> Cession Hors Zone <br>
+                                                    <input type="radio" name="local" id="local"> Cession Locale
+                                                    
+                                                    Code Article:
+                                                    <input name="article" type="text" class="form-control m-2" value="{{$pdr->code_article}}" readonly>
+                                                    
+                                                    <input name="qte" type="text" class="form-control m-2" placeholder="Quantité">
+                                                    <input name='id' type="hidden" value="{{$pdr->id_ot}}">
+                                                    <button type="button" class="btn btn-secondary w-25 m-4" data-bs-dismiss="modal">Fermer</button>
+                                                    <input type="submit" class="btn btn-primary w-25 m-4" value="Enregistrer">
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                
+                                <!--fin demande de cession d'entrée-->
+
+                                <td class="d-flex">
                                     
-                                    <form action="/passerdprf" method="POST">
-                                        @csrf
-                                    <td class="d-flex">
+                                    <button class="btn btn-secondary m-2" style="width:160px;" data-bs-toggle="modal" data-bs-target="#{{$pdr->id_ot.$pdr->code_article}}"> demander cession </button>
+                                    <button type ="button" class="btn   m-2" style="width:160px; background-color:#faf636;" data-bs-toggle="modal" data-bs-target="#{{$pdr->id_ot}}">
+                                    modifier la qte
+                                    </button>
+                                </td>
+                        <form action="/passerdprf" method="POST">
+                            @csrf
                                     
-                                        <button class="btn btn-secondary m-2" style="width:160px;" data-bs-toggle="modal" data-bs-target="#{{$pdr->id_ot.$pdr->code_article}}"> demander cession </a>
-                                        <button type ="button" class="btn   m-2" style="width:160px; background-color:#faf636;" data-bs-toggle="modal" data-bs-target="#{{$pdr->id_ot}}">
-                                        modifier la qte
-                                        </button>
-                                    </td>
                                     <td>
                                         <input type="checkbox" name="checkboxes[]"  value="{{$pdr->id_ot}}" class="ml-4">
                                     </td>
 
                                     
                                 </tr>
+                                
                                 @endforeach
                             </div>
                                     
                                 
                             </table>
                             
-                        </form>
-                   
-                        </div>
                         
+                        <div class="d-flex" style="position: absolute; right: 0; margin-bottom: 100px; z-index: 9999;">
+                                    <select name="genre"  class="form-select m-2  btn btn-secondary" style="width:160px;" aria-label="Disabled select example">
+                                        <option selected disabled hidden>Genre</option>
+                                            <option value="electrique">éléctrique</option>
+                                            <option value="instrument">instrument</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary m-2" style="width:160px;">Passer DPRF</button>
+                                </div>
+                        </div>
+                    </form>
                         
 
             @include('footer')
@@ -188,7 +218,7 @@
 	    if (urlParams.has('msg')) {
 				 Swal.fire({
 	  		icon: 'success',
-	  		title: 'DPRF est passé avec ',
+	  		title: 'DPRF est passé avec succés',
 	  		text: urlParams.get('msg')
 	});
 }
