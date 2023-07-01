@@ -34,7 +34,7 @@ class UserController extends Controller
         // $deleteTeamAction->delete($user);
         
         if(DB::table('users')->where('id', '=', $id)->delete()){
-            return redirect('/users?msg=userdeleted');
+            return redirect('/users?delete=userdeleted');
         }else{
             return redirect('/users?error=userNotDeleted');
         }
