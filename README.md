@@ -31,7 +31,7 @@ Une fois que vous avez installé Laragon et vérifié que les prérequis sont sa
 Pour commencer, vous devez télécharger le code source du projet depuis le référentiel GitHub fourni.Suivez étapes ci-dessous:
 i. Ouvrez un navigateur web et accédez au référentiel GitHub du projet :
 
-        https://github.com/chadia08/ocp.git.
+        https://github.com/chadia08/MEA_STOCK.git
 
 ii. Sur la page du référentiel GitHub, cliquez sur le bouton vert "Code" et sélectionnez l'option "Download ZIP". Cela téléchargera une archive ZIP contenant tout le code source du projet sur votre machine locale.
 GitHub Download ZIP
